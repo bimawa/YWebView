@@ -65,7 +65,6 @@
 @property (nonatomic, strong) YMessageHandler* messageHandler;
 @property (nonatomic, strong) NSMutableArray* messageHandlerNames;
 @property (nonatomic, strong) WKWebViewConfiguration* theConfiguration;
-@property (nonatomic) BOOL isDomainComparation;
 @end
 
 @implementation YWebView
