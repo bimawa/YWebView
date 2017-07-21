@@ -10,6 +10,7 @@
 #import <WebKit/WebKit.h>
 
 @interface YWebView : WKWebView
+@property (nonatomic) BOOL isDomainComparation;
 
 - (instancetype)initWithFrame:(CGRect)frame configuration:(WKWebViewConfiguration*)theConfiguration NS_DESIGNATED_INITIALIZER;
 - (WKNavigation*)loadRequest:(NSURLRequest*)request;

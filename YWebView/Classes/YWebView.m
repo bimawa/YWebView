@@ -65,6 +65,7 @@
 @property (nonatomic, strong) YMessageHandler* messageHandler;
 @property (nonatomic, strong) NSMutableArray* messageHandlerNames;
 @property (nonatomic, strong) WKWebViewConfiguration* theConfiguration;
+@property (nonatomic) BOOL isDomainComparation;
 @end
 
 @implementation YWebView
@@ -103,6 +104,7 @@
         _messageHandlerNames = [[NSMutableArray alloc] init];
         _messageHandler = handler;
         _messageHandler.webView = self;
+        _isDomainComparation = YES;
 
         [self addScriptMessageHandlerNameForCleanup:Y_HANDLER_NAME];
     }
@@ -143,7 +145,7 @@
         }
 
         // Is the cookie for current domain?
-        if (![validDomain hasSuffix:cookie.domain] && ![cookie.domain hasSuffix:validDomain]) {
+        if (self.isDomainComparation && ![validDomain hasSuffix:cookie.domain] && ![cookie.domain hasSuffix:validDomain]) {
             //NSLog(@"Skipping %@ (because not %@)", cookie.properties, validDomain);
             continue;
         }
